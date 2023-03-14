@@ -69,39 +69,6 @@ def save_settings():
     print('Settings have been saved to \'settings.json\'')
 
 
-# HEY, WHAT ARE YOU TRYING TO DO???
-# ARE YOU CHEATING???
-def secret_command():
-    # Shhhh
-    secret_value = random.randrange(1, 101)
-
-    if secret_value <= 50:
-        print()
-
-    if secret_value <= 10:
-        print('-| !secret - ???')
-    elif secret_value <= 14:
-        print('-| !secret U_________')
-    elif secret_value <= 18:
-        print('-| !secret _U________')
-    elif secret_value <= 22:
-        print('-| !secret __D_______')
-    elif secret_value <= 26:
-        print('-| !secret ___D______')
-    elif secret_value <= 30:
-        print('-| !secret ____L_____')
-    elif secret_value <= 34:
-        print('-| !secret _____R____')
-    elif secret_value <= 38:
-        print('-| !secret ______L___')
-    elif secret_value <= 42:
-        print('-| !secret _______R__')
-    elif secret_value <= 46:
-        print('-| !secret ________B_')
-    elif secret_value <= 50:
-        print('-| !secret _________A')
-
-
 # Command function
 def print_commands():
     print('---=<[COMMANDS]>=---')
@@ -139,7 +106,6 @@ def print_commands():
     print()
     print('-| !quit - Exit the program')
     print('---| If you exit without using !quit, your settings will not save!')
-    secret_command()
     print()
     print('---=+=---')
 
@@ -298,26 +264,6 @@ def cmd_quit_logic():
     quit()
 
 
-# HEY, WHAT ARE YOU TRYING TO DO???
-# ARE YOU CHEATING???
-def cmd_secret_logic(command: str):
-    password = command
-    if password == '':
-        print('Please input the correct password as !secret <password>')
-        return
-
-    if password == 'UUDDLRLRBA':
-        print('Looking for easter eggs, eh?')
-        print('Well you\'ve got me')
-        print('I haven\'t thought this far yet...')
-        print('Well congrats, and sorry for wasting your time...')
-        print('You can let GM know that you found the passcode ig')
-        print('Maybe I\'ll add a reward in the future for finding the passcode? Idk I\'ll see')
-        print('Anyway congratulations for finding the passcode!')
-    else:
-        print('Incorrect password!')
-
-
 def is_command(text_input: str, command_name: str) -> bool:
     return text_input.startswith(command_name + ' ') or text_input == command_name
 
@@ -365,9 +311,6 @@ def execute_command(command: str):
     # quit command
     elif command == 'quit':
         cmd_quit_logic()
-
-    elif command.startswith('secret'):
-        cmd_secret_logic(command[len('secret ')::])
 
     else:
         print('Unrecognized command.')
