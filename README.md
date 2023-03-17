@@ -2,9 +2,9 @@
 Connect to your microphone using Text-To-Speech!
 
 ### Contents:
-- [Features](https://github.com/GaMeNu/TTSMic/edit/main/README.md#sparkles-features)
-- [Installation](https://github.com/GaMeNu/TTSMic/edit/main/README.md#arrow_down-installation)
-- [Future plans](https://github.com/GaMeNu/TTSMic/edit/main/README.md#fast_forward-future-plans)
+- [Features](https://github.com/GaMeNu/TTSMic/blob/main/README.md#sparkles-features)
+- [Installation](https://github.com/GaMeNu/TTSMic/blob/main/README.md#arrow_down-installation)
+- [Future plans](https://github.com/GaMeNu/TTSMic/blob/main/README.md#fast_forward-future-plans)
 
 ## :sparkles: Features:
 - Simple TTS through your microphone
