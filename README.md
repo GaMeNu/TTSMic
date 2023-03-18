@@ -32,5 +32,5 @@ And that's it!
 
 ## :fast_forward: Future plans:
 - Better file playback controls and real time playback morphing (pitch, speed, etc.)
-- Custom Audio library, probably based on PyGame mixer and [mjbrusso's AudioPlayer library](https://github.com/mjbrusso/AudioPlayer)
+- Custom Audio library, probably based on [mjbrusso's AudioPlayer library](https://github.com/mjbrusso/AudioPlayer) (And PyGame mixer? idk)
 - GUI with PyGame
