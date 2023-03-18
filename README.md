@@ -31,5 +31,5 @@ After installing the Cable program, download the latest TTSMic release from the 
 And that's it!
 
 ## :fast_forward: Future plans:
-- Better file playback controls and real time file changing
+- Better file playback controls and real time playback morphing (pitch, speed, etc.)
 - GUI with PyGame
