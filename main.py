@@ -6,6 +6,8 @@ import threading
 import time
 from enum import Enum
 
+import audioplayer.abstractaudioplayer
+
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 
 # TTS engine
@@ -47,7 +49,7 @@ default_settings = {"rate": engine.getProperty('rate'),
                     "playback_files": files_playback}
 saved_settings: dict = default_settings
 
-playback_device: AudioPlayer | None = None
+playback_device: AudioPlayer | None = AudioPlayer('')
 
 
 class PlayingState(Enum):
@@ -185,7 +187,8 @@ def print_splash():
                 '2am coding GO!',
                 'Oh golly jee I might have found a playback audio library WHOOOOOO!',
                 'VOICE PLAYBACK OVERHAUL!',
-                'More Bugs than Brain']
+                'More Bugs than Brain',
+                'When you spend hours to debug code, only to find out the problem is in the package you used:']
     print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-')
     print(random.choice(splashes))
     print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-')
@@ -199,6 +202,7 @@ def stop_file():
         mixer.music.stop()
         mixer.music.unload()
         playback_device.close()
+        play_status = PlayingState.STOPPED
 
 
 def play_file(file: str, playback: bool):
@@ -215,8 +219,13 @@ def play_file(file: str, playback: bool):
     mixer.music.play()
 
     if playback:
-        playback_device = AudioPlayer(file)
-        playback_device.play()
+        try:
+            # asfgfh
+            playback_device.set_filename(file)
+            playback_device.play()
+        except audioplayer.abstractaudioplayer.AudioPlayerError as e:
+            print('Failed to start playback')
+            print(e)
 
 
 # Utility function to change an engine property
@@ -365,8 +374,10 @@ def cmd_play_logic(command: str):
     else:
         filename = command[0:index:]
 
+    stop_file()
     outdated_files_playback = files_playback
     play_file(filename, outdated_files_playback)
+    play_status = PlayingState.PLAYING
 
 
 def cmd_stop_logic():
@@ -686,3 +697,5 @@ if __name__ == '__main__':
                 play_status = PlayingState.SPEECH
 
         print()
+
+
