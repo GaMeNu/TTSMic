@@ -31,6 +31,8 @@ After installing the Cable program, download the latest TTSMic release from the 
 And that's it!
 
 ## :fast_forward: Future plans:
+- Reworking the structure of the program (mostly splitting the file into more files
+- Soundboard
 - Better file playback controls and real time playback morphing (pitch, speed, etc.)
 - Custom Audio library, probably based on [mjbrusso's AudioPlayer library](https://github.com/mjbrusso/AudioPlayer) (And PyGame mixer? idk)
 - GUI with PyGame
